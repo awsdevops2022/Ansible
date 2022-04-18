@@ -1,0 +1,15 @@
+---
+ - name: ansible playbook for tomcat which supports any version of tomcat and distributions are RedHat and Debian
+   hosts: all
+   become: yes
+   vars_prompt:
+     - name: tomcat_port
+       prompt: provide tomcat port
+       default: 8080
+       private: no
+     - name: req_tomcat_ver
+       prompt: provide tomcat version
+       default: 9.0.62
+       private: false
+   roles:
+     - tomcat
